@@ -6,7 +6,6 @@ class Contact implements Serializable {
     private String name;
     private String phoneNumber;
     private String emailAddress;
-
     public Contact(String name, String phoneNumber, String emailAddress) {
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -49,7 +48,6 @@ class ContactManager {
             }
         }
     }
-
     public void editContact(String name, Contact newContact) {
         if (contacts.containsKey(name)) {
             contacts.put(name, newContact);
@@ -59,7 +57,6 @@ class ContactManager {
             System.out.println("Contact not found.");
         }
     }
-
     public void deleteContact(String name) {
         if (contacts.remove(name) != null) {
             saveContacts();
@@ -68,7 +65,6 @@ class ContactManager {
             System.out.println("Contact not found.");
         }
     }
-
     private void saveContacts() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             oos.writeObject(contacts);
@@ -76,7 +72,6 @@ class ContactManager {
             e.printStackTrace();
         }
     }
-
     @SuppressWarnings("unchecked")
     private void loadContacts() {
         File file = new File(FILE_NAME);
@@ -102,7 +97,6 @@ public class ContactBook
             System.out.println("3. Edit Contact");
             System.out.println("4. Delete Contact");
             System.out.println("5. Exit");
-
             int choice = scanner.nextInt();
             scanner.nextLine();  // Consume newline
 
@@ -127,7 +121,6 @@ public class ContactBook
             }
         }
     }
-
     private static void addContact() {
         System.out.print("Enter contact name: ");
         String name = scanner.nextLine();
@@ -139,7 +132,6 @@ public class ContactBook
         manager.addContact(contact);
         System.out.println("Contact added successfully.");
     }
-
     private static void editContact() {
         System.out.print("Enter the name of the contact to edit: ");
         String name = scanner.nextLine();
@@ -150,7 +142,6 @@ public class ContactBook
         Contact newContact = new Contact(name, phoneNumber, emailAddress);
         manager.editContact(name, newContact);
     }
-
     private static void deleteContact() {
         System.out.print("Enter the name of the contact to delete: ");
         String name = scanner.nextLine();
