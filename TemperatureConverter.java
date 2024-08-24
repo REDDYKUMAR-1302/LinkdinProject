@@ -12,7 +12,7 @@ public class TemperatureConverter extends JFrame {
 
     public TemperatureConverter() {
         setTitle("Temperature Converter");
-        setSize(400, 200);
+        setSize(800, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
         JLabel inputLabel = new JLabel("Enter temperature: ");
